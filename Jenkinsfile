@@ -33,7 +33,8 @@ pipeline {
 
 	sshagent(credentials: ['Vagrant_ssh']) {
 	
-	sh 'docker run nour001/anuglar:${DOCKER_TAG}'
+	sh 'docker pull nour001/angular:22ca9fb'
+	sh 'docker run nour001/angular:22ca9fb'
 	}
        }
 }

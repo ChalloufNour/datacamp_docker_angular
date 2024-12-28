@@ -20,10 +20,13 @@ pipeline {
      
      stage ('DockerHub Push') {
 	steps {
-	  sh 'docker login -u nour001 -p nourdockerhub'
-          sh 'docker push nour001/angular:${DOCKER_TAG}'
-         }
-        }
+		withCredentials([string(credentialsId: 'mydockerhubpassword', variable:
+	'DockerHubPassword')]) {
+	sh 'docker login -u nour001 -p ${DockerHubPassword}'
+	}
+	sh 'docker push nour001/angular:${DOCKER_TAG}'
+	}
+}
    }
 }
 

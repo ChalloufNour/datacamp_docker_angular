@@ -5,7 +5,7 @@ pipeline {
 	DOCKER_TAG = getVersion()
      }
 
-
+  stages {
     stage ('Clone Stage') {
       steps {
 	git branch: 'main', url: 'https://github.com/ChalloufNour/datacamp_docker_angular.git'
@@ -25,6 +25,7 @@ pipeline {
          }
         }
    }
+}
 
 def getVersion(){
 def version = sh returnStdout: true, script: 'git rev-parse --short HEAD'

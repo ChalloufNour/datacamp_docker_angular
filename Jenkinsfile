@@ -8,7 +8,7 @@ pipeline {
 
     stage ('Clone Stage') {
       steps {
-	git https://github.com/ChalloufNour/datacamp_docker_angular.git
+	git branch: 'main', url: 'https://github.com/ChalloufNour/datacamp_docker_angular.git'
 	}
     }
     

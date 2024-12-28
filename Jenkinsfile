@@ -26,7 +26,18 @@ pipeline {
 	}
 	sh 'docker push nour001/angular:${DOCKER_TAG}'
 	}
+     }
+     
+    stage ('Deploy') {
+	steps{
+
+	sshagent(credentials: ['Vagrant_ssh']) {
+	
+	sh 'docker run nour001/anuglar:${DOCKER_TAG}'
+	}
+       }
 }
+
    }
 }
 

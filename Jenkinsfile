@@ -20,7 +20,7 @@ pipeline {
      
      stage ('DockerHub Push') {
 	steps {
-	  sh 'docker login –u nour001 –p nourdockerhub'
+	  sh 'docker login -u nour001 -p nourdockerhub'
           sh 'docker push nour001/angular:${DOCKER_TAG}'
          }
         }

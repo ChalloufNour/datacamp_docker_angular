@@ -14,13 +14,13 @@ pipeline {
     
     stage ('Docker Build') {
 	steps {
-	  sh 'docker build -t ChalloufNour/angular:${DOCKER_TAG}.'
+	  sh 'docker build -t nour001/angular:${DOCKER_TAG} .'
 	}
      }
      
      stage ('DockerHub Push') {
 	steps {
-	  sh 'sudo docker login –u username –p password'
+	  sh 'sudo docker login –u nour001 –p dockerhubnour'
           sh 'sudo docker push nour001/angular:${DOCKER_TAG}'
          }
         }
